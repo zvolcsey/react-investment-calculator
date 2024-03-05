@@ -1,6 +1,10 @@
+import UserInput from "./components/UserInput/UserInput"
+
 function App() {
   return (
-    <main>TODO</main>
+    <main>
+      <UserInput />
+    </main>
   )
 }
 
