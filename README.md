@@ -7,14 +7,24 @@
 
 ## Content
 
-1. [Change log](#change-log) 
-2. [Run locally](#run-locally)
-3. [Port](#port)
+1. [Change log](#change-log)
+2. [Starting project](#starting-project) 
+3. [Run locally](#run-locally)
+4. [Port](#port)
 
 ## Change Log
 
 1. I built this project alone.
 2. Check the instructor's solution and improved my solution.
+
+## Starting project
+
+- The project based on the starting project from the course.
+- It contents:
+    - basic Vite project
+    - CSS codes
+    - investment-calculator-logo.png
+    - `src/util/investment.js`
 
 ## Run locally
 
