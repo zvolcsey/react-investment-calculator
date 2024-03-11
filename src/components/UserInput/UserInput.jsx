@@ -1,6 +1,6 @@
 import "./UserInput.css";
 
-export default function UserInput() {
+export default function UserInput({ currentInvestment, onChangeInvesment }) {
   return (
     <div id="user-input">
       <div className="input-group">
@@ -11,6 +11,8 @@ export default function UserInput() {
             id="initial-investment-input"
             name="initial-investment"
             required
+            value={currentInvestment.initialInvestment}
+            onChange={(event) => onChangeInvesment("initialInvestment", Number(event.target.value))}
           />
         </p>
         <p>
@@ -20,6 +22,8 @@ export default function UserInput() {
             id="annual-investment-input"
             name="annual-investment"
             required
+            value={currentInvestment.annualInvestment}
+            onChange={(event) => onChangeInvesment("annualInvestment", Number(event.target.value))}
           />
         </p>
       </div>
@@ -31,6 +35,8 @@ export default function UserInput() {
             id="expected-return-input"
             name="expected-return"
             required
+            value={currentInvestment.expectedReturn}
+            onChange={(event) => onChangeInvesment("expectedReturn", Number(event.target.value))}
           />
         </p>
         <p>
@@ -40,6 +46,8 @@ export default function UserInput() {
             id="duration-input"
             name="duration"
             required
+            value={currentInvestment.duration}
+            onChange={(event) => onChangeInvesment("duration", Number(event.target.value))}
           />
         </p>
       </div>
