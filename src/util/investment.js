@@ -1,3 +1,5 @@
+// These functions are part of the starting project.
+
 // This function expects a JS object as an argument
 // The object should contain the following properties
 // - initialInvestment: The initial investment amount
