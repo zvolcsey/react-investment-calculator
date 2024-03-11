@@ -2,10 +2,10 @@ import "./UserInput.css";
 
 export default function UserInput({ currentInvestment, onChangeInvesment }) {
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
         <p>
-          <label htmlFor="initial-investment-input" >Initial Investment</label>
+          <label htmlFor="initial-investment-input">Initial Investment</label>
           <input
             type="number"
             id="initial-investment-input"
@@ -16,7 +16,7 @@ export default function UserInput({ currentInvestment, onChangeInvesment }) {
           />
         </p>
         <p>
-          <label htmlFor="annual-investment-input" >Annual Investment</label>
+          <label htmlFor="annual-investment-input">Annual Investment</label>
           <input
             type="number"
             id="annual-investment-input"
@@ -51,6 +51,6 @@ export default function UserInput({ currentInvestment, onChangeInvesment }) {
           />
         </p>
       </div>
-    </div>
+    </section>
   )
 }

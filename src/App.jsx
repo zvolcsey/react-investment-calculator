@@ -1,7 +1,6 @@
 import { useState } from "react";
 import UserInput from "./components/UserInput/UserInput"
 import ResultsTable from "./components/ResultsTable/ResultsTable"
-import { calculateInvestmentResults } from "./util/investment"
 
 const initialState = {
   initialInvestment: 10000,
@@ -13,13 +12,17 @@ const initialState = {
 function App() {
   const [currentInvestment, setCurentInvestment] = useState(initialState);
 
-  const result = calculateInvestmentResults(currentInvestment);
+  const inputIsValid = 
+  currentInvestment.initialInvestment >= 1 &&
+  currentInvestment.annualInvestment >= 1 &&
+  currentInvestment.expectedReturn >= 1 &&
+  currentInvestment.duration >= 1;
 
   function handleCurrentInvestmentChange(inputField, newValue) {
     setCurentInvestment(prevInvestment => {
       return {
         ...prevInvestment,
-        [inputField]: Number(newValue),
+        [inputField]: newValue,
       }
     });
   }
@@ -30,10 +33,8 @@ function App() {
         currentInvestment={currentInvestment}
         onChangeInvesment={handleCurrentInvestmentChange}
       />
-      <ResultsTable
-        currentInvestment={currentInvestment}
-        result={result}
-      />
+      {!inputIsValid && <p className="center">Please enter valid input data</p>}
+      {inputIsValid && <ResultsTable currentInvestment={currentInvestment} />}
     </main>
   )
 }

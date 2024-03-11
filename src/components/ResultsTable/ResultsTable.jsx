@@ -1,19 +1,21 @@
 import "./ResultsTable.css";
-import { formatter } from "../../util/investment";
+import { calculateInvestmentResults, formatter } from "../../util/investment";
 
-export default function ResultsTable({ currentInvestment, result }) {
+export default function ResultsTable({ currentInvestment }) {
   const { initialInvestment, annualInvestment } = currentInvestment;
+
+  const resultsData = calculateInvestmentResults(currentInvestment);
   
-  const resultItems = result.map(data => {
-    const investedCapital = Number(initialInvestment) + 
-      data.year * Number(annualInvestment);
-    const totalInterest = data.valueEndOfYear - Number(investedCapital);
+  const resultItems = resultsData.map(yearData => {
+    const investedCapital = initialInvestment + 
+      yearData.year * annualInvestment;
+    const totalInterest = yearData.valueEndOfYear - investedCapital;
 
     return (
-      <tr key={data.year}>
-        <td>{data.year}</td>
-        <td>{formatter.format(data.valueEndOfYear)}</td>
-        <td>{formatter.format(data.interest)}</td>
+      <tr key={yearData.year}>
+        <td>{yearData.year}</td>
+        <td>{formatter.format(yearData.valueEndOfYear)}</td>
+        <td>{formatter.format(yearData.interest)}</td>
         <td>{formatter.format(totalInterest)}</td>
         <td>{formatter.format(investedCapital)}</td>
       </tr>
